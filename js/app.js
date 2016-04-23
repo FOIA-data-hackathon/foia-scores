@@ -17,4 +17,3 @@ foiascoreApp.controller('agency', function ($scope, $http){ //$interval
         console.log($scope.agencydata);
     });
 });
-
