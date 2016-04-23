@@ -30,30 +30,30 @@ requests$days <- requests$interval / ddays(1)
 
 # text
 
-requests$text <- paste(requests$title, requests$description)
+# requests$text <- paste(requests$title, requests$description)
 
-review_source <- VectorSource(requests$text)
+# review_source <- VectorSource(requests$text)
 
-corpus <- Corpus(review_source)
+# corpus <- Corpus(review_source)
 
-corpus <- tm_map(corpus, content_transformer(tolower))
+# corpus <- tm_map(corpus, content_transformer(tolower))
 
 
-corpus <- tm_map(corpus, removePunctuation)
+# corpus <- tm_map(corpus, removePunctuation)
 
-corpus <- tm_map(corpus, stripWhitespace)
+# corpus <- tm_map(corpus, stripWhitespace)
 
-corpus <- tm_map(corpus, removeWords, stopwords("english"))
+# corpus <- tm_map(corpus, removeWords, stopwords("english"))
 
-dtm <- DocumentTermMatrix(corpus)
+# dtm <- DocumentTermMatrix(corpus)
 
-dtm2 <- as.matrix(dtm)
+# dtm2 <- as.matrix(dtm)
 
-frequency <- colSums(dtm2)
+# frequency <- colSums(dtm2)
 
-frequency <- sort(frequency, decreasing=TRUE)
+# frequency <- sort(frequency, decreasing=TRUE)
 
-head(frequency)
+# head(frequency)
 
 
 departments <- requests %>%
