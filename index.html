@@ -23,9 +23,9 @@
         <h4>{{agency.agency_name}}</h4>
       </div>
     </div> -->
-    <h1>FOIA Scores</h1>
 
     <div class="row">
+      <h1 class="main-hed">FOIA Scores</h1>
       <label>Search: <input ng-model="searchText"></label>
       <div class="large-12 columns" id="searchTextResults">
         <div ng-repeat="agency in agencydata | filter:searchText | limitTo:quantity">

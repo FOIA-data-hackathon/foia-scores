@@ -26,9 +26,13 @@
   height: 800px;
 }
 
+.main-hed {
+  margin-top: 20px;
+}
+
 input {
   width: 90%;
   font-size: 30px;
   height: 40px;
-  margin-top: 50px;
+  margin: 20px 0;
 }
