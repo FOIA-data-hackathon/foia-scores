@@ -28,30 +28,31 @@
       <div class="large-12 columns" id="searchTextResults">
         <div ng-repeat="agency in agencydata | filter:searchText" data-equalizer>
 
-          <div ng-if="agency.done_per < 33" class="large-6 columns callout terrible" data-equalizer-watch>
+          <div ng-if="agency.done_per < 33" class="large-6 columns card terrible" data-equalizer-watch>
             <div ng-if="agency.done_avg > 100">
               <img src="img/shame-button.png">
             </div>
             <h1 class="agency-name">{{agency.agency_name}}</h1>
+            <p ng-if="agency.done !== ''">Total requests: {{agency.total}}</p>
             <p ng-if="agency.done !== ''"><span>Number of completed requests: </span>{{agency.done}}</p>
-            <p ng-if="agency.done !== ''"><span>Average number of days to complete a request: </span>{{agency.done_avg}}</p>
+            <p ng-if="agency.done_avg !== ''"><span>Average number of days to complete a request: </span>{{agency.done_avg}}</p>
             <p ng-if="agency.done_per !== ''"><span>Percentage of requests fulfilled: </span>{{agency.done_per}}</p>
             <p ng-if="agency.rejected !== ''"><span>Number of requests rejected: </span>{{agency.rejected}}</p>
 
           </div>
 
-          <div ng-if="agency.done_per >= 33 && agency.done_per < 66" class="large-6 columns callout bad" data-equalizer-watch>
+          <div ng-if="agency.done_per >= 33 && agency.done_per < 66" class="large-6 columns card bad" data-equalizer-watch>
             <h1 class="agency-name">{{agency.agency_name}}</h1>
             <p ng-if="agency.done !== ''"><span>Number of completed requests: </span>{{agency.done}}</p>
-            <p ng-if="agency.done !== ''"><span>Average number of days to complete a request: </span>{{agency.done_avg}}</p>
+            <p ng-if="agency.done_avg !== ''"><span>Average number of days to complete a request: </span>{{agency.done_avg}}</p>
             <p ng-if="agency.done_per !== ''"><span>Percentage of requests fulfilled: </span>{{agency.done_per}}</p>
             <p ng-if="agency.rejected !== ''"><span>Number of requests rejected: </span>{{agency.rejected}}</p>
           </div>
 
-          <div ng-if="agency.done_per >= 66" class="large-6 columns callout decent" data-equalizer-watch>
+          <div ng-if="agency.done_per >= 66" class="large-6 columns card decent" data-equalizer-watch>
             <h1 class="agency-name">{{agency.agency_name}}</h1>
             <p ng-if="agency.done !== ''"><span>Number of completed requests: </span>{{agency.done}}</p>
-            <p ng-if="agency.done !== ''"><span>Average number of days to complete a request: </span>{{agency.done_avg}}<span ng-if="agency.done_avg > 100" class="shame">SHAME!!!</span></p>
+            <p ng-if="agency.done_avg !== ''"><span>Average number of days to complete a request: </span>{{agency.done_avg}}</p>
             <p ng-if="agency.done_per !== ''"><span>Percentage of requests fulfilled: </span>{{agency.done_per}}</p>
             <p ng-if="agency.rejected !== ''"><span>Number of requests rejected: </span>{{agency.rejected}}</p>
           </div>
