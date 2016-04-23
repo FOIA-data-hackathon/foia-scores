@@ -23,19 +23,20 @@
         <h4>{{agency.agency_name}}</h4>
       </div>
     </div> -->
-
-    <label>Search: <input ng-model="searchText"></label>
-    <table id="searchTextResults">
-      <tr><th>Name</th><th>Done</th><th>Done avg</th><th>Done percent</th><th>Rejected</th></tr>
-      <tr ng-repeat="agency in agencydata | filter:searchText">
-        <td>{{agency.agency_name}}</td>
-        <td ng-if="agency.done !== ''">{{agency.done}}</td>
-        <td ng-if="agency.done_avg !== ''">{{agency.done_avg}}</td>
-        <td ng-if="agency.done_avg !== ''">{{agency.done_per}}</td>
-        <td ng-if="agency.rejected !== ''">{{agency.rejected}}</td>
-        <!-- <td>{{friend.phone}}</td> -->
-      </tr>
-    </table>
+    <div class="row">
+      <label>Search: <input ng-model="searchText"></label>
+      <table id="searchTextResults">
+        <tr><th>Name</th><th>Done</th><th>Done avg</th><th>Done percent</th><th>Rejected</th></tr>
+        <tr ng-repeat="agency in agencydata | filter:searchText">
+          <td>{{agency.agency_name}}</td>
+          <td ng-if="agency.done !== ''">{{agency.done}}</td>
+          <td ng-if="agency.done_avg !== ''">{{agency.done_avg}}</td>
+          <td ng-if="agency.done_avg !== ''">{{agency.done_per}}</td>
+          <td ng-if="agency.rejected !== ''">{{agency.rejected}}</td>
+          <!-- <td>{{friend.phone}}</td> -->
+        </tr>
+      </table>
+    </div>
 
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/what-input.min.js"></script>
