@@ -25,3 +25,10 @@
   border: 10px solid #fff;
   height: 800px;
 }
+
+input {
+  width: 90%;
+  font-size: 30px;
+  height: 40px;
+  margin-top: 50px;
+}
