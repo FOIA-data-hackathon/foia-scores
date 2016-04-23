@@ -26,7 +26,7 @@
     <div class="row">
       <label>Search: <input ng-model="searchText"></label>
       <div class="large-12 columns" id="searchTextResults">
-        <div ng-repeat="agency in agencydata | filter:searchText" data-equalizer>
+        <div ng-repeat="agency in agencydata | filter:searchText | limitTo:quantity" data-equalizer>
 
           <div ng-if="agency.done_per < 33" class="large-6 columns card terrible" data-equalizer-watch>
             <div ng-if="agency.done_avg > 100">

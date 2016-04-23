@@ -15,5 +15,6 @@ foiascoreApp.controller('agency', function ($scope, $http){ //$interval
     $http.get("agencies.json").success(function(response){
         $scope.agencydata = response;
         console.log($scope.agencydata);
+        $scope.quantity = 100;
     });
 });
