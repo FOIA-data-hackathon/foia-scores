@@ -14,7 +14,7 @@ foiascoreApp.controller('agency', function ($scope, $http){ //$interval
     // $interval($scope.getData, 240000); //240 secs
     $http.get("agencies.json").success(function(response){
         $scope.agencydata = response;
-        // console.log($scope.agencydata);
+        console.log($scope.agencydata);
     });
 });
 
