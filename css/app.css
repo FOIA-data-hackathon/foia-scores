@@ -2,3 +2,20 @@
   color: red;
   font-weight: bold;
 }
+
+.agency-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.terrible {
+  background: red;
+}
+
+.bad {
+  background: yellow;
+}
+
+.decent {
+  background: green;
+}
