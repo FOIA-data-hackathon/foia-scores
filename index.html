@@ -25,17 +25,29 @@
     </div> -->
     <div class="row">
       <label>Search: <input ng-model="searchText"></label>
-      <table id="searchTextResults">
-        <tr><th>Name</th><th>Done</th><th>Done avg</th><th>Done percent</th><th>Rejected</th></tr>
-        <tr ng-repeat="agency in agencydata | filter:searchText">
-          <td>{{agency.agency_name}}</td>
-          <td ng-if="agency.done !== ''">{{agency.done}}</td>
-          <td ng-if="agency.done_avg !== ''">{{agency.done_avg}} <span ng-if="agency.done_avg > 100" class="shame">SHAME!!!</span></td>
-          <td ng-if="agency.done_avg !== ''">{{agency.done_per}}</td>
-          <td ng-if="agency.rejected !== ''">{{agency.rejected}}</td>
-          <!-- <td>{{friend.phone}}</td> -->
-        </tr>
-      </table>
+      <div class="large-12 columns" id="searchTextResults">
+        <div ng-repeat="agency in agencydata | filter:searchText">
+          <div ng-if="agency.done_avg > 100" class="large-4 columns callout alert">
+            <h1>{{agency.agency_name}}</h1>
+            <p ng-if="agency.done !== ''"><span>Done: </span>{{agency.done}}</p>
+            <p ng-if="agency.done !== ''"><span>Done avg: </span>{{agency.done_avg}}<span ng-if="agency.done_avg > 100" class="shame">SHAME!!!</span></p>
+            <p ng-if="agency.done_per !== ''"><span>Done percent: </span>{{agency.done_per}}</p>
+            <p ng-if="agency.rejected !== ''"><span>rejected: </span>{{agency.rejected}}</p>
+
+          </div>
+
+          <div ng-if="agency.done_avg < 100" class="large-4 columns callout primary">
+            <h1>{{agency.agency_name}}</h1>
+            <p ng-if="agency.done !== ''"><span>Done: </span>{{agency.done}}</p>
+            <p ng-if="agency.done !== ''"><span>Done avg: </span>{{agency.done_avg}}<span ng-if="agency.done_avg > 100" class="shame">SHAME!!!</span></p>
+            <p ng-if="agency.done_per !== ''"><span>Done percent: </span>{{agency.done_per}}</p>
+            <p ng-if="agency.rejected !== ''"><span>rejected: </span>{{agency.rejected}}</p>
+
+          </div>
+        </div>
+          
+      </div>
+      
     </div>
 
     <script src="js/vendor/jquery.min.js"></script>
