@@ -95,12 +95,12 @@ departments$submitted_per <- round(departments$submitted/departments$total*100,2
 departments <- left_join(departments, departments_avgs)
 departments[ departments == "NaN" ] = NA
 
-dept_json <- toJSON(departments)
-cat(dept_json)
+#dept_json <- toJSON(departments)
+#cat(dept_json)
 
-write(dept_json, "agencies2.json")
+#write(dept_json, "agencies2.json")
 
-dept_export <- departments[c("agency_name", "done", "done_avg", "done_per", "rejected", "rejected_per", "total")]
+dept_export <- departments[c("agency_name", "done", "done_avg", "done_per", "rejected", "total")]
 dept_export$link <- "http://www.muckrock.com"
 
 dept_export$img <- dept_export$agency_name
@@ -112,8 +112,8 @@ dept_export$img <- gsub("\\/", "", dept_export$img)
 
 dept_export$img <- paste0("http://foia-data-hackathon.github.io/foia-scores/pngs/", dept_export$img, ".png")
 
-dept_json <- toJSON(dept_export)
-cat(dept_json)
+#dept_json <- toJSON(dept_export)
+#cat(dept_json)
 
 write(dept_json, "agencies.json")
 
@@ -160,6 +160,9 @@ uniques$uniques <- gsub("\\/", "", uniques$uniques)
 uniques$img_link <- paste0("http://foia-data-hackathon.github.io/foia-scores/pngs/", uniques$uniques, ".png")
 colnames(uniques) <- c("img", "img_link")
 
+dept_export$img <- gsub("http://foia-data-hackathon.github.io/foia-scores/pngs/", "", dept_export$img)
+dept_export$img <- gsub(".png", "", dept_export$img)                  
+                        
 dept_export <- left_join(dept_export, uniques)
 
 dept_json <- toJSON(dept_export)
