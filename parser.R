@@ -100,7 +100,10 @@ cat(dept_json)
 
 write(dept_json, "agencies2.json")
 
-dept_export <- departments[c("done", "done_avg", "done_per", "rejected", "rejected_per", "total")]
+dept_export <- departments[c("agency_name", "done", "done_avg", "done_per", "rejected", "rejected_per", "total")]
+dept_export$link <- "http://www.muckrock.com"
+dept_export$img <- "http://www.blah.com"
+
 dept_json <- toJSON(dept_export)
 cat(dept_json)
 
@@ -116,10 +119,26 @@ departments_hist$status <- gsub("rejected", "Rejected", departments_hist$status)
 departments_hist$status <- gsub("no_docs", "No documents", departments_hist$status)
 
 
- fbi <- subset(departments_hist, agency_name=="Federal Bureau of Investigation")
+# fbi <- subset(departments_hist, agency_name=="Federal Bureau of Investigation")
 
-p <- ggplot(fbi, aes(days)) +
-  geom_histogram(binwidth = 10)
-p + facet_wrap(~ status,ncol=1, scales = "free") + ggtitle("Distribution of days that FBI fulfills requests") + theme_minimal() +ylab("Frequency") + dlab("Days")
+uniques <- departments_hist$agency_name
+uniques <- unique(uniques)
+
+for (i in 1:length(uniques)) {
+
+  the_name <- gsub(" ", "", uniques[i])
+  the_name <- gsub("\\.", "", the_name)
+  the_name <- gsub("\\(", "", the_name)
+  the_name <- gsub("\\)", "", the_name)
+  
+  new_df <- subset(departments_hist, agency_name==uniques[i])
+  
+  p <- ggplot(new_df, aes(days)) + geom_histogram(binwidth = 10) 
+  p + facet_wrap(~ status,ncol=1, scales = "free") + ggtitle(paste0("Distribution of days that ", uniques[i], "fulfills requests")) + theme_minimal() +ylab("Frequency") + xlab("Days")
+                                                             
+  file_path <- paste0("pngs/", the_name, ".png")
+  
+  ggsave(file_path, width=8, height=6, dpi=100)
+}
 
 
