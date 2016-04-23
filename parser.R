@@ -3,6 +3,7 @@ library(lubridate)
 library(tm)
 library(tidyr)
 library(jsonlite)
+library(ggplot2)
 
 requests <- read.csv("data/requests.csv", stringsAsFactors=FALSE)
 requests$date_submitted <- ymd(requests$date_submitted)
@@ -26,6 +27,7 @@ for (i in 1:nrow(requests)) {
 
 requests$interval <- interval(requests$date_submitted, requests$date_done)
 requests$days <- requests$interval / ddays(1)
+requests$status <- as.factor(requests$status)
 
 
 # text
@@ -96,4 +98,28 @@ departments[ departments == "NaN" ] = NA
 dept_json <- toJSON(departments)
 cat(dept_json)
 
+write(dept_json, "agencies2.json")
+
+dept_export <- departments[c("done", "done_avg", "done_per", "rejected", "rejected_per", "total")]
+dept_json <- toJSON(dept_export)
+cat(dept_json)
+
 write(dept_json, "agencies.json")
+
+## for histograming -- just looking at done, rejected, no_docs
+
+departments_hist <- requests %>%
+  filter(status=="done" | status=="rejected" | status=="no_docs")
+
+departments_hist$status <- gsub("done", "Done", departments_hist$status)
+departments_hist$status <- gsub("rejected", "Rejected", departments_hist$status)
+departments_hist$status <- gsub("no_docs", "No documents", departments_hist$status)
+
+
+ fbi <- subset(departments_hist, agency_name=="Federal Bureau of Investigation")
+
+p <- ggplot(fbi, aes(days)) +
+  geom_histogram(binwidth = 10)
+p + facet_wrap(~ status,ncol=1, scales = "free") + ggtitle("Distribution of days that FBI fulfills requests") + theme_minimal() +ylab("Frequency") + dlab("Days")
+
+
