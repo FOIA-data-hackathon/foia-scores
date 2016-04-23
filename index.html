@@ -5,10 +5,18 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FOIA Scores</title>
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!--<![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
   </head>
-  <body>
+  <body  ng-app="foiascoreApp" ng-controller="agency" >
 
     <div class="row">
       <div class="large-12 columns">
@@ -164,7 +172,6 @@
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/what-input.min.js"></script>
     <script src="js/foundation.min.js"></script>
-    <script src="js/lohudanalytics.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
