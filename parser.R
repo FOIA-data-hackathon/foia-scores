@@ -102,7 +102,15 @@ write(dept_json, "agencies2.json")
 
 dept_export <- departments[c("agency_name", "done", "done_avg", "done_per", "rejected", "rejected_per", "total")]
 dept_export$link <- "http://www.muckrock.com"
-dept_export$img <- "http://www.blah.com"
+
+dept_export$img <- dept_export$agency_name
+dept_export$img <- gsub(" ", "", dept_export$img)
+dept_export$img <- gsub("\\.", "", dept_export$img)
+dept_export$img <- gsub("\\(", "", dept_export$img)
+dept_export$img <- gsub("\\)", "", dept_export$img)
+dept_export$img <- gsub("\\/", "", dept_export$img)
+
+dept_export$img <- paste0("http://foia-data-hackathon.github.io/foia-scores/pngs/", dept_export$img, ".png")
 
 dept_json <- toJSON(dept_export)
 cat(dept_json)
@@ -124,13 +132,14 @@ departments_hist$status <- gsub("no_docs", "No documents", departments_hist$stat
 uniques <- departments_hist$agency_name
 uniques <- unique(uniques)
 
+
 for (i in 1:length(uniques)) {
 
   the_name <- gsub(" ", "", uniques[i])
   the_name <- gsub("\\.", "", the_name)
   the_name <- gsub("\\(", "", the_name)
   the_name <- gsub("\\)", "", the_name)
-  
+  the_name <- gsub("\\/", "", the_name)
   new_df <- subset(departments_hist, agency_name==uniques[i])
   
   p <- ggplot(new_df, aes(days)) + geom_histogram(binwidth = 10) 
@@ -141,4 +150,18 @@ for (i in 1:length(uniques)) {
   ggsave(file_path, width=8, height=6, dpi=100)
 }
 
+uniques <- data.frame(uniques)
+uniques$uniques <- gsub(" ", "", uniques$uniques)
+uniques$uniques <- gsub("\\.", "", uniques$uniques)
+uniques$uniques <- gsub("\\(", "", uniques$uniques)
+uniques$uniques <- gsub("\\)", "", uniques$uniques)
+uniques$uniques <- gsub("\\/", "", uniques$uniques)
 
+uniques$img_link <- paste0("http://foia-data-hackathon.github.io/foia-scores/pngs/", uniques$uniques, ".png")
+colnames(uniques) <- c("img", "img_link")
+
+dept_export <- left_join(dept_export, uniques)
+
+dept_json <- toJSON(dept_export)
+
+write(dept_json, "agencies.json")
