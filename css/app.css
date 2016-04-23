@@ -1,0 +1,38 @@
+.shame {
+  color: red;
+  font-weight: bold;
+}
+
+.agency-name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.terrible {
+  background: #F4BDBD;
+}
+
+.bad {
+  background: #FFF8BB;
+}
+
+.decent {
+  background: #DAFFC7;
+}
+
+.card {
+  padding: 20px;
+  border: 10px solid #fff;
+  height: 800px;
+}
+
+.main-hed {
+  margin-top: 20px;
+}
+
+input {
+  width: 90%;
+  font-size: 30px;
+  height: 40px;
+  margin: 20px 0;
+}

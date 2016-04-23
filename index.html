@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FOIA Scores</title>
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!--<![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body  ng-app="foiascoreApp" ng-controller="agency" >
+
+    <!-- <div class="row">
+      <div class="large-4 columns panel agency" ng-repeat="agency in agencydata">
+        <h4>{{agency.agency_name}}</h4>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <h1 class="main-hed">FOIA Scores</h1>
+      <label>Search: <input ng-model="searchText"></label>
+      <div class="large-12 columns" id="searchTextResults">
+        <div ng-repeat="agency in agencydata | filter:searchText | limitTo:quantity">
+
+          <div ng-if="agency.done_per < 33" class="large-6 columns card terrible" data-equalizer-watch>
+            <div ng-if="agency.done_avg > 100">
+              <img src="img/shame-button.png">
+            </div>
+            <h1 class="agency-name">{{agency.agency_name}}</h1>
+            <p ng-if="agency.done !== ''">Total requests: <strong>{{agency.total}}</strong></p>
+            <p ng-if="agency.done !== ''"><span>Number of completed requests: </span><strong>{{agency.done}}</strong></p>
+            <p ng-if="agency.done_avg !== ''"><span>Average number of days to complete a request: </span><strong>{{agency.done_avg}}</strong></p>
+            <p ng-if="agency.done_per !== ''"><span>Percentage of requests fulfilled: </span><strong>{{agency.done_per}}</strong></p>
+            <p ng-if="agency.rejected !== ''"><span>Number of requests rejected: </span><strong>{{agency.rejected}}</strong></p>
+            <img src="{{agency.img_link}}"/>
+          </div>
+
+          <div ng-if="agency.done_per >= 33 && agency.done_per < 66" class="large-6 columns card bad" data-equalizer-watch>
+            <h1 class="agency-name">{{agency.agency_name}}</h1>
+            <p ng-if="agency.done !== ''"><span>Number of completed requests: </span><strong>{{agency.done}}</strong></p>
+            <p ng-if="agency.done_avg !== ''"><span>Average number of days to complete a request: </span><strong>{{agency.done_avg}}</strong></p>
+            <p ng-if="agency.done_per !== ''"><span>Percentage of requests fulfilled: </span><strong>{{agency.done_per}}</strong></p>
+            <p ng-if="agency.rejected !== ''"><span>Number of requests rejected: </span><strong>{{agency.rejected}}</strong></p>
+            <img src="{{agency.img_link}}"/>
+          </div>
+
+          <div ng-if="agency.done_per >= 66" class="large-6 columns card decent" data-equalizer-watch>
+            <h1 class="agency-name">{{agency.agency_name}}</h1>
+            <p ng-if="agency.done !== ''"><span>Number of completed requests: </span><strong>{{agency.done}}</strong></p>
+            <p ng-if="agency.done_avg !== ''"><span>Average number of days to complete a request: </span><strong>{{agency.done_avg}}</strong></p>
+            <p ng-if="agency.done_per !== ''"><span>Percentage of requests fulfilled: </span><strong>{{agency.done_per}}</strong></p>
+            <p ng-if="agency.rejected !== ''"><span>Number of requests rejected: </span><strong>{{agency.rejected}}</strong></p>
+            <img src="{{agency.img_link}}"/>
+          </div>
+
+        </div>
+          
+      </div>
+      
+    </div>
+
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/what-input.min.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
