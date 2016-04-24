@@ -6,7 +6,7 @@ A site to evaluate various agencies based on time it takes to fulfill FOIA reque
 
 ### Notes
 
-* We only noticed FOIAMapper's excellent [FOIA scorecard](https://foiamapper.com/agencies/) for federal agencies halfway through our project. But we continued with our project since it had data on federal agencies as well as state and local agencies.
+* We only noticed FOIAMapper's excellent [FOIA scorecard](https://foiamapper.com/agencies/) for federal agencies halfway through our project. But we continued on since it had data on federal agencies as well as state and local agencies.
 
 * The [live page](http://foia-data-hackathon.github.io/foia-scores/) only lists the first hundred results so the search function is the best way to dig through other scores.
 
@@ -23,6 +23,7 @@ A site to evaluate various agencies based on time it takes to fulfill FOIA reque
 * The initial idea was to combine fulfillment stats from Muckrock, FOIAMapper, and FOIA.gov, but we only had a few hours so we just limited our analysis to Muckrock. 
 * Search by keywords culled from the description field (as well as agency) to see average fulfillment days and completion rate.
 * Add links to examples of succesful FOIA requests and rejected FOIA requests by agency.
+* A more effective way to page through results instead of limiting display of results to first 100.
 
 ## What's next?
 
