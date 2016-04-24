@@ -26,7 +26,7 @@
 
     <div class="row">
       <h1 class="main-hed">FOIA Scores</h1>
-      <h5><a href="http://foia-data-hackathon.github.io/foia-scores/">FOIA Scores</a> was created using data from <a href="https://www.muckrock.com/news/archives/2016/apr/16/join-muckrock-and-buzzfeed-hack-foia-april-23rd/">Muckrock</a> by <a href="http://www.twitter.com/abtran">Andrew Tran</a>, <a href="http://www.twitter.com/jkteoh">Kai Teoh</a>, and <a href="http://www.twitter.com/hil_fung">Hilary Fung</a> at the <a href="https://github.com/FOIA-data-hackathon">FOIA Data Hackday</a> hosted by Buzzfeed. Read more about the project in our <a href="https://github.com/FOIA-data-hackathon/foia-scores">repo</a>.
+      <h5><a href="http://foia-data-hackathon.github.io/foia-scores/">FOIA Scores</a> was created using data from <a href="https://www.muckrock.com/news/archives/2016/apr/16/join-muckrock-and-buzzfeed-hack-foia-april-23rd/">Muckrock</a> by <a href="http://www.twitter.com/abtran">Andrew Tran</a>, <a href="http://www.twitter.com/jkteoh">Kai Teoh</a>, and <a href="http://www.twitter.com/hil_fung">Hilary Fung</a> at the <a href="https://github.com/FOIA-data-hackathon">FOIA Data Hackday</a> hosted by Buzzfeed. Agencies highlighted green means they fulfilled more than 2/3 of requests. Red means they rejected more than 2/3 requests. Yellow was for agencies in between. Read more about the project in our <a href="https://github.com/FOIA-data-hackathon/foia-scores">repo</a>.
       <label>Search: <input ng-model="searchText"></label>
       <div class="large-12 columns" id="searchTextResults">
         <div ng-repeat="agency in agencydata | filter:searchText | limitTo:quantity">
