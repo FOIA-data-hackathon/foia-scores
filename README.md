@@ -2,7 +2,7 @@
 
 A site to evaluate various agencies based on time it takes to fulfill FOIA requests and how many are completed versus rejected.
 
-[FOIA Scores](http://foia-data-hackathon.github.io/foia-scores/) was created using data from [Muckrock(https://www.muckrock.com/news/archives/2016/apr/16/join-muckrock-and-buzzfeed-hack-foia-april-23rd/) by [Andrew Tran](http://www.twitter.com/abtran), [Kai Teoh](http://www.twitter.com/jkteoh), and [Hilary Fung](http://www.twitter.com/hil_fung) at the [FOIA Data Hackday](https://github.com/FOIA-data-hackathon) hosted by Buzzfeed. 
+[FOIA Scores](http://foia-data-hackathon.github.io/foia-scores/) was created using data from [Muckrock](https://www.muckrock.com/news/archives/2016/apr/16/join-muckrock-and-buzzfeed-hack-foia-april-23rd/) by [Andrew Tran](http://www.twitter.com/abtran), [Kai Teoh](http://www.twitter.com/jkteoh), and [Hilary Fung](http://www.twitter.com/hil_fung) at the [FOIA Data Hackday](https://github.com/FOIA-data-hackathon) hosted by Buzzfeed. 
 
 ### Notes
 
