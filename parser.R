@@ -143,7 +143,7 @@ for (i in 1:length(uniques)) {
   new_df <- subset(departments_hist, agency_name==uniques[i])
   
   p <- ggplot(new_df, aes(days)) + geom_histogram(binwidth = 10) 
-  p + facet_wrap(~ status,ncol=1, scales = "free") + ggtitle(paste0("Distribution of days that ", uniques[i], "fulfills requests")) + theme_minimal() +ylab("Frequency") + xlab("Days")
+  p + facet_wrap(~ status,ncol=1, scales = "free") + ggtitle(paste0("Distribution of days that ", uniques[i], " fulfills requests")) + theme_minimal() +ylab("Frequency") + xlab("Days")
                                                              
   file_path <- paste0("pngs/", the_name, ".png")
   
